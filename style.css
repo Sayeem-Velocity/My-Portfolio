@@ -283,6 +283,17 @@ body {
   font-size: 2rem;
   color: #fff;
 }
+.skill-box img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 8px #0001;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
 
 /* Projects Section */
 .projects {
@@ -502,6 +513,7 @@ section.active, .project-card.active, .skill-box.active {
   background: var(--second-bg-color);
   padding: 8rem 8% 4rem 8%;
 }
+
 .experience-content {
   display: flex;
   align-items: flex-start;
@@ -650,6 +662,7 @@ section.active, .project-card.active, .skill-box.active {
   width: 90%;
   left: 5%;
 }
+
 .text-animation.glow {
   color: var(--main-color);
   text-shadow: 0 0 8px var(--main-color-light), 0 0 24px var(--main-color), 0 0 48px var(--main-color-dark);
