@@ -57,7 +57,7 @@
         <h2 class="heading blue">About <span>Me</span></h2>
         <p>ETE, CUET | ML & Deep Learning | Artificial Intelligence | Kaggle Expert. I am passionate about leveraging AI to solve real-world problems and love to compete on Kaggle. Always exploring new technologies and pushing boundaries.</p>
         <div class="about-info">
-          <div><span>Experience:</span> 2+ Years</div>
+          <div><span>Experience:</span> <span id="exp-years"></span> Years</div>
           <div><span>Email:</span> sayeem26s@gmail.com</div>
           <div><span>Location:</span> Chattogram, Bangladesh</div>
         </div>
@@ -258,5 +258,13 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+  // Set your start date (March 1, 2025)
+  const startDate = new Date(2024, 2, 1); // Month is 0-indexed: 2 = March
+  const now = new Date();
+  let years = (now - startDate) / (1000 * 60 * 60 * 24 * 365.25);
+  years = years > 0 ? years : 0;
+  document.getElementById('exp-years').textContent = years.toFixed(1);
+</script>
   </body>
 </html>
