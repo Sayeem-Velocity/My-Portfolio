@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="S.M. Shahriar - AI Researcher, ML Engineer, Kaggle Expert">
+  <title>S.M. Shahriar | AI Researcher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-secondary: #121212;
+      --text: #e8e8e8;
+      --text-secondary: #b0b0b0;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-dark: #2563eb;
+      --card-bg: #1a1a1a;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Section Styles */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px solid var(--accent);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .about-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .info-item {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .info-item strong {
+      color: var(--accent);
+    }
+
+    /* Experience Section */
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .experience-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .experience-card:hover {
+      transform: translateX(8px);
+    }
+
+    .experience-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-card .company {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-card .date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .experience-card ul {
+      margin-left: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(59,130,246,0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--bg-secondary);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-content p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(59,130,246,0.1);
+      color: var(--accent-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .project-links a:hover {
+      color: var(--accent-light);
+    }
+
+    /* Research Section */
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .research-paper {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .research-paper h3 {
+      color: var(--accent-light);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .research-paper .venue {
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .research-paper .status {
+      display: inline-block;
+      background: rgba(34,197,94,0.1);
+      color: #4ade80;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Resume Section */
+    .resume-container {
+      text-align: center;
+    }
+
+    .resume-embed {
+      width: 100%;
+      height: 800px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      background: var(--card-bg);
+    }
+
+    /* Contact Section */
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: var(--accent);
+      font-size: 2rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      color: var(--accent-light);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - 70px);
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 2rem;
+        transition: right 0.3s;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-tagline {
+        font-size: 1rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-info {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .animate-fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .animate-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">S.M. Shahriar</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <i class='bx bx-menu menu-toggle'></i>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>S.M. Shahriar</h1>
+      <p class="hero-tagline">AI Researcher | AI Engineering Intern at ResearchBuddy AI | Kaggle Expert | ETE, CUET</p>
+      <p style="max-width: 700px; margin: 1rem auto; color: var(--text-secondary);">
+        Machine Learning & AI specialist focused on LLMs, deep learning, and production-grade AI systems. Passionate about building intelligent solutions and advancing AI research.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#research" class="btn btn-secondary">Research</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="images/PP.png" alt="S.M. Shahriar" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/3b82f6?text=SMShahriar'">
+      </div>
+      <div class="about-text">
+        <p>I'm an AI researcher and machine learning engineer specializing in large language models, deep learning, and production MLOps systems. Currently working as an AI Engineering Intern at ResearchBuddy AI, I develop intelligent agent systems and deploy LLM applications on Google Cloud Vertex AI.</p>
+        <p>With a strong foundation in electronics and telecommunication engineering from CUET (CGPA: 3.81/4.00), I combine theoretical knowledge with practical implementation. My research has been accepted at international conferences including BLP 2025 (AACL-IJCNLP) and QPAIN 2025.</p>
+        <p>I'm a Kaggle Expert and have achieved top placements in multiple datathons, including 4th place at National Datathon (CUET CSE Fest) and finalist at IEEE Signal Processing Cup.</p>
+        <div class="about-info">
+          <div class="info-item"><strong>Education:</strong> B.Sc. ETE, CUET</div>
+          <div class="info-item"><strong>CGPA:</strong> 3.81/4.00</div>
+          <div class="info-item"><strong>Location:</strong> Chattogram, BD</div>
+          <div class="info-item"><strong>Email:</strong> sayeem26s@gmail.com</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" style="background: var(--bg-secondary);">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-card animate-fade-in">
+        <h3>AI Engineering Intern</h3>
+        <div class="company">ResearchBuddy AI</div>
+        <div class="date">Dec 2025 - Present | Remote</div>
+        <ul>
+          <li>Developing AI agent systems and deploying LLM-based applications to production using Google Cloud Vertex AI</li>
+        </ul>
+      </div>
+      <div class="experience-card animate-fade-in">
+        <h3>Industrial Trainee</h3>
+        <div class="company">Brain Station 23</div>
+        <div class="date">May 2025 | Dhaka, Bangladesh</div>
+        <ul>
+          <li>Developed and deployed hands-on machine learning projects utilizing Streamlit, ZenML, Docker, and FastAPI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <!-- Resume Projects First -->
+      <div class="project-card animate-fade-in">
+        <div class="project-content">
+          <h3>AskWise AI</h3>
+          <p>Built an end-to-end RAG chatbot for document Q&A using Python, LangChain, FAISS, and Streamlit. Enabled semantic search over custom PDFs with modular LLM integration and secure API key management.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">RAG</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/s-m-shahriar-26s/" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://www.kaggle.com/shahriar26s" target="_blank" title="Kaggle"><i class='bx bxl-kaggle'></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 S.M. Shahriar. All Rights Reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">AI Researcher | Machine Learning Engineer</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Active nav link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href').includes(current)) {
+          link.style.color = 'var(--accent)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <div class="project-content">
+          <h3>Multimodal AI Doctor</h3>
+          <p>Built a multimodal agentic LLM system (vision + text) for medical Q&A and image-guided assistance. Implemented multimodal agents to enable tool-based reasoning and structured, reliable responses.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Multimodal LLMs</span>
+            <span class="tag">Agentic Workflows</span>
+            <span class="tag">Prompt Engineering</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <div class="project-content">
+          <h3>Uber Fare MLOps</h3>
+          <p>Developed a complete MLOps pipeline using ZenML to predict optimal Uber fares, identify high-demand zones, and visualize pricing trends. Integrated model versioning, scheduled retraining with Gaussian noise augmentation.</p>
+          <div class="project-tags">
+            <span class="tag">LightGBM</span>
+            <span class="tag">ZenML</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Docker</span>
+            <span class="tag">MLOps</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <img src="images/project3.png" class="project-image" alt="Smart Attendance System" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>Smart Attendance System</h3>
+          <p>Employed MTCNN and OpenCV for accurate frontal face detection and bounding box generation. Implemented ResNet-34 for robust subject identification and enhanced prediction accuracy.</p>
+          <div class="project-tags">
+            <span class="tag">MTCNN</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">ResNet-34</span>
+            <span class="tag">Flask</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity/Smart-Attendance-System" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Existing Projects -->
+      <div class="project-card animate-fade-in">
+        <img src="images/project1.png" class="project-image" alt="Smart Plot Generator" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>Smart Plot Generator</h3>
+          <p>Developed an interactive Streamlit app for dynamic CSV data visualization. Upload CSV, select plot types, and explore data without code.</p>
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Plotly</span>
+          </div>
+          <div class="project-links">
+            <a href="https://sayeem-velocity-ai-plot-generator-app-g1b6if.streamlit.app/" target="_blank" title="Live Demo"><i class='bx bx-globe'></i></a>
+            <a href="https://github.com/Sayeem-Velocity/Smart-Plot-Generator" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <img src="images/project2.png" class="project-image" alt="S11 Optimizer" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>S11 Parameter Optimizer for Microstrip Antennas</h3>
+          <p>Machine learning approaches to optimize S11 parameter for Wi-Fi 7 microstrip patch antennas.</p>
+          <div class="project-tags">
+            <span class="tag">ML</span>
+            <span class="tag">Antenna Design</span>
+            <span class="tag">Optimization</span>
+          </div>
+          <div class="project-links">
+            <a href="https://s11-predictor.up.railway.app/" target="_blank" title="Live Demo"><i class='bx bx-globe'></i></a>
+            <a href="https://github.com/Sayeem-Velocity/quadband-antenna-optimizer" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <img src="images/project4.jpg" class="project-image" alt="Deepfake Detection" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>Deepfake Detection: CNN Approach</h3>
+          <p>Processed 200K+ images, achieved 85.92% accuracy. Multi-layer CNN for face detection and deepfake classification.</p>
+          <div class="project-tags">
+            <span class="tag">CNN</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Deep Learning</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity/Deepfake_Detection" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <img src="images/project5.jpg" class="project-image" alt="BPH Detection" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>BPH Detection using ResNet18-SVM</h3>
+          <p>ResNet18 for feature extraction, SVM for classification. Achieved 95.5% accuracy, recall, and F1-score.</p>
+          <div class="project-tags">
+            <span class="tag">ResNet18</span>
+            <span class="tag">SVM</span>
+            <span class="tag">Medical AI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity/Benign-Prostate-Hyperplasia-BPH-Detection" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card animate-fade-in">
+        <img src="images/project6.jpg" class="project-image" alt="EEG Analysis" onerror="this.style.display='none'">
+        <div class="project-content">
+          <h3>EEG Data Analysis and Alcoholism Detection</h3>
+          <p>EEG signals to spectrograms, hybrid CNN-SVM model, 90%+ accuracy in classifying alcoholic subjects.</p>
+          <div class="project-tags">
+            <span class="tag">EEG</span>
+            <span class="tag">CNN-SVM</span>
+            <span class="tag">Signal Processing</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Sayeem-Velocity/Alcoholism_Detection" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research" style="background: var(--bg-secondary);">
+    <h2 class="section-title">Research & Publications</h2>
+    <div class="research-list">
+      <div class="research-paper animate-fade-in">
+        <h3>P6Jiggasha: Benchmarking Large Language Models on Bangla Physics Question Answering with Cross-lingual Evaluation</h3>
+        <p class="venue">Second Bangla Language Processing Workshop (BLP 2025), AACL-IJCNLP</p>
+        <span class="status">Accepted</span>
+      </div>
+
+      <div class="research-paper animate-fade-in">
+        <h3>A CLAHE-Enhanced Vision Transformer with OVR-SVM for Breast Cancer Classification</h3>
+        <p class="venue">International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN 2025)</p>
+        <span class="status">Accepted</span>
+      </div>
+
+      <div class="research-paper animate-fade-in">
+        <h3>Machine Learning-Assisted Return Loss Optimization for Quad-Band Microstrip Antenna for 5G and WiFi-6/7 Applications</h3>
+        <p class="venue">International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN 2025)</p>
+        <span class="status">Accepted</span>
+      </div>
+
+      <div class="research-paper animate-fade-in">
+        <h3>A Quad-Band Microstrip Antenna for 5G, WiFi-6/7, and Satellite Communications</h3>
+        <p class="venue">International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN 2025)</p>
+        <span class="status">Accepted</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <h2 class="section-title">Resume</h2>
+    <div class="resume-container">
+      <iframe src="S_M__Shahriar_Resume.pdf" class="resume-embed" title="Resume"></iframe>
+      <a href="S_M__Shahriar_Resume.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background: var(--bg-secondary);">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-content">
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">Feel free to reach out for collaborations, research opportunities, or just to connect!</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class='bx bx-envelope'></i>
+          <a href="mailto:sayeem26s@gmail.com" style="color: var(--text); text-decoration: none;">sayeem26s@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class='bx bx-map'></i>
+          <span>Chattogram, Bangladesh</span>
+        </div>
+        <div class="contact-item">
+          <i class='bx bx-phone'></i>
+          <span>+880 1313 264635</span>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/Sayeem-Velocity" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
