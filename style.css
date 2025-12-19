@@ -294,6 +294,10 @@ body {
   display: block;
   margin: 0 auto 0.5rem auto;
 }
+.skill-img-rounded {
+  background: #fff !important;
+  border-radius: 6px !important;
+}
 
 /* Projects Section */
 .projects {
