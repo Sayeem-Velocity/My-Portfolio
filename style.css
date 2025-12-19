@@ -508,6 +508,75 @@ section.active, .project-card.active, .skill-box.active {
   50% { opacity: 0; }
 }
 
+/* Publications Section */
+.publications {
+  background: var(--bg-color);
+  padding: 8rem 8% 4rem 8%;
+}
+
+.publications-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.publication-card {
+  background: var(--second-bg-color);
+  border-radius: 2rem;
+  padding: 2.8rem 2.5rem;
+  box-shadow: 0 8px 32px var(--main-color-light);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+}
+
+.publication-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 48px var(--main-color);
+}
+
+.pub-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pub-meta {
+  font-size: 1.5rem;
+  color: #c7e0ff;
+  line-height: 1.5;
+}
+
+.pub-links {
+  margin-top: auto;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.pub-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--main-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 24px var(--main-color-light);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.pub-link:hover {
+  background: #fff;
+  color: var(--main-color);
+  transform: scale(1.2) rotate(-10deg);
+}
+
+
 /* Experience Section */
 .experience {
   background: var(--second-bg-color);
